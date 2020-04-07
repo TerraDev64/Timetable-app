@@ -7,11 +7,10 @@ import java.io.IOException;
 
 public class CsvReader {
     public void readFile() {
-        System.out.println("done");
 
-        String csvFile = "C:\\Users\\Christian\\Documents\\JavaProjects\\Timetable-App\\src\\main\\resources\\Stundenplan 19-20.csv";
+        final String csvFile = "C:\\Users\\Christian\\Documents\\JavaProjects\\Timetable-App\\src\\main\\resources\\Stundenplan 19-20.csv";
         String line = "";
-        String csvSplitBy = ",";
+        final String csvSplitBy = ",";
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
@@ -27,10 +26,12 @@ public class CsvReader {
                         +row [3]
                         +row [4]
                         +row [5]
+
                 );
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException eIO) {
+            System.out.println("error: " + eIO);
+            eIO.printStackTrace();
         }
     }
 }
