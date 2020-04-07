@@ -9,8 +9,9 @@ public class CsvReader {
     public void readFile() {
 
         final String csvFile = "C:\\Users\\Christian\\Documents\\JavaProjects\\Timetable-App\\src\\main\\resources\\Stundenplan 19-20.csv";
-        String line = "";
         final String csvSplitBy = ",";
+        String line = "";
+
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
