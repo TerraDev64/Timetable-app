@@ -8,7 +8,7 @@ import java.io.IOException;
 public class CsvReader {
     public void readFile() {
 
-        final String csvFile = "C:\\Users\\Christian\\Documents\\JavaProjects\\Timetable-App\\src\\main\\resources\\Stundenplan 19-20.csv";
+        final String csvFile = "";
         final String csvSplitBy = ",";
 
 
