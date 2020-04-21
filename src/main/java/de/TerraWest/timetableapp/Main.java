@@ -1,15 +1,77 @@
 package de.TerraWest.timetableapp;
 
+import de.TerraWest.timetableapp.adapters.domain.FileManager;
+import de.TerraWest.timetableapp.domain.StundenplanRepository;
+
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        //String file = args[0];
-        var CsvReader = new CsvReader();
-        //var showFile = new show
-        System.out.println(System.getProperty("file"));
-        CsvReader.readFile(System.getProperty("file"));
 
+    private static final String FILEPATH = "Stundenplan.csv";
+    // private static final String FILEPATH = "src/main/resources/Stundenplan_19-20.csv";
+
+    private final StundenplanRepository stundenplanRepository;
+
+    public Main() {
+
+        var fileContent = "";
+        try {
+            fileContent = FileManager.readFile(FILEPATH);
+        } catch (IOException e) {
+            System.err.println("Die Datei " + FILEPATH + " konnte nicht gelesen werden");
+            System.exit(-1);
+        }
+
+        stundenplanRepository = new StundenplanRepository(fileContent);
+
+        System.out.println("Stundenplan Verwaltung von TerraWest\n");
+
+        printMenu();
+
+        var scanner = new Scanner(System.in);
+
+        //noinspection InfiniteLoopStatement
+        while (true) {
+            var menuString = scanner.nextLine().replaceAll("\n", "");
+            switch (menuString) {
+                case "s", "S" -> showStundenplan();
+                case "e", "E" -> saveDataInFileAndExit();
+            }
+
+            printMenu();
+        }
+    }
+
+    private void printMenu() {
+        System.out.println(
+            """
+            Geben bitte den passenden Buchstaben für den gewünschten Menüpunkt ein:
+            
+            s => Zeige Stundenplan
+            e => Beenden 
+            """);
+    }
+
+    private void showStundenplan() {
+
+        var stunden = stundenplanRepository.getStundenplan();
+
+        if (stunden.length < 1 || stunden[0].isEmpty()) {
+            System.out.println("Der Stundenplan enthält keine Elemente.");
+        } else {
+            for(String line : stunden) {
+                System.out.println(line);
+            }
+        }
+    }
+
+    private void saveDataInFileAndExit() {
+        // TODO: save data in file
+        System.exit(0);
+    }
+
+    public static void main(String[] args) {
+        new Main();
     }
 }
-
-// -Dfile="Stundenplan_19-20.csv"
