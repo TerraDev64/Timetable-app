@@ -17,7 +17,13 @@ public class FileManager {
         var br = new BufferedReader(new FileReader(file));
         var line = "";
         while ((line = br.readLine()) != null) {
-            fileContent.append(line).append('\n');
+            //fileContent.append(line).append('\n');
+            String[] row = line.split(",");
+
+            for(String index : row) {
+                System.out.printf("%-20s", index);
+            }
+            System.out.println();
         }
         return fileContent.toString();
     }
