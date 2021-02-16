@@ -26,7 +26,7 @@ public class Main {
 
 		stundenplanRepository = new StundenplanRepository(fileContent);
 
-		System.out.println("Stundenplan Verwaltung von TerraWest\n");
+		System.out.println("Stundenplan Verwaltung von TerraDev64\n");
 
 		printMenu();
 
