@@ -1,22 +1,13 @@
 package de.TerraDev64.timetableapp.domain;
 
-public class StundenplanRepository {
-	private String stundenplan;
+public interface StundenplanRepository {
+	String stundenplan = "";
 
-	public StundenplanRepository(String stundenplan) {
+	public void addNewHour();
 
-		this.stundenplan = stundenplan;
-	}
+	public void deleteHour();
 
-	public void addNewHour() {
+	public void deleteStundenplan();
 
-	}
-
-	public void deleteHour() {
-
-	}
-
-	public String[] getStundenplan() {
-		return stundenplan.split("\n");
-	}
+	public String[] getStundenplan();
 }
