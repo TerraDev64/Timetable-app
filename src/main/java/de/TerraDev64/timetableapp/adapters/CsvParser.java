@@ -1,4 +1,4 @@
-package de.TerraDev64.timetableapp.domain;
+package de.TerraDev64.timetableapp.adapters;
 
 import java.util.List;
 

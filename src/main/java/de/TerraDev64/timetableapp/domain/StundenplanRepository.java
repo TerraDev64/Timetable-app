@@ -9,5 +9,7 @@ public interface StundenplanRepository {
 
 	public void deleteStundenplan();
 
+	public void getData();
+
 	public String[] getStundenplan();
 }

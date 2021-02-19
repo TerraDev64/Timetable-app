@@ -24,7 +24,7 @@ public class Main {
 			System.exit(-1);
 		}
 
-		stundenplanRepository = new StundenplanRepository(fileContent);
+		//stundenplanRepository = new StundenplanRepository(fileContent);
 
 		System.out.println("Stundenplan Verwaltung von TerraDev64\n");
 
@@ -51,7 +51,8 @@ public class Main {
 						                
 						s => Zeige Stundenplan
 						e => Beenden 
-						""");
+						"""
+		);
 	}
 
 	private void showStundenplan() {
